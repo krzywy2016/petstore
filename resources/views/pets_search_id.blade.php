@@ -55,35 +55,32 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pets as $pet)
                     <tr>
-                        <td>{{ $pet['id'] }}</td>
+                        <td>{{ $pets['id'] }}</td>
                         <td>
-                            @if (isset($pet['name']))
-                                {{ $pet['name'] }}
+                            @if (isset($pets['name']))
+                                {{ $pets['name'] }}
                             @else
                                 Brak nazwy
                             @endif
                         </td>
                         <td>
-                            @if (isset($pet['category']['name']))
-                                {{ $pet['category']['name'] }}
+                            @if (isset($pets['category']['name']))
+                                {{ $pets['category']['name'] }}
                             @else
                                 Brak kategorii
                             @endif
                         </td>
                         <td>
-                            @if (isset($pet['photoUrls']))
-                                @foreach ($pet['photoUrls'] as $photoUrl)
-                                    @if (filter_var($photoUrl, FILTER_VALIDATE_URL) && preg_match('/\.(jpeg|jpg|png|gif)$/', $photoUrl))
-                                        <img src="{{ $photoUrl }}" width="50px"><br>
-                                    @endif
-                                @endforeach
-                            @endif
+                            @foreach ($pets['photoUrls'] as $photoUrl)
+                                @if (filter_var($photoUrl, FILTER_VALIDATE_URL) && preg_match('/\.(jpeg|jpg|png|gif)$/', $photoUrl))
+                                    <img src="{{ $photoUrl }}" width="50px"><br>
+                                @endif
+                            @endforeach
                         </td>
                         <td>
                             @if (isset($tag['tags']))
-                                @foreach ($pet['tags'] as $tag)
+                                @foreach ($pets['tags'] as $tag)
                                     @if (isset($tag['name']))
                                         {{ $tag['name'] }}<br>
                                     @endif
@@ -91,26 +88,25 @@
                             @endif
                         </td>
                         <td>
-                            @if ($pet['status'] === 'available')
-                                <span class="badge badge-pill badge-success">{{ $pet['status'] }}</span>
-                            @elseif($pet['status'] === 'pending')
-                                <span class="badge badge-pill badge-primary">{{ $pet['status'] }}</span>
-                            @elseif($pet['status'] === 'sold')
-                                <span class="badge badge-pill badge-danger">{{ $pet['status'] }}</span>
+                            @if ($pets['status'] === 'available')
+                                <span class="badge badge-pill badge-success">{{ $pets['status'] }}</span>
+                            @elseif($pets['status'] === 'pending')
+                                <span class="badge badge-pill badge-primary">{{ $pets['status'] }}</span>
+                            @elseif($pets['status'] === 'sold')
+                                <span class="badge badge-pill badge-danger">{{ $pets['status'] }}</span>
                             @endif
                         </td>
                         <td>
                             <button class="btn btn-primary" data-toggle="modal"
-                                data-target="#editPetModal{{ $pet['id'] }}"><i class="fa-regular fa-pen-to-square"></i></button>
+                                data-target="#editPetModal{{ $pets['id'] }}"><i class="fa-regular fa-pen-to-square"></i></button>
                             <button class="btn btn-danger" data-toggle="modal"
-                                data-target="#deletePetModal{{ $pet['id'] }}"><i class="fa-solid fa-trash"></i></button>
+                                data-target="#deletePetModal{{ $pets['id'] }}"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
-                @endforeach
             </tbody>
         </table>
-    </div>
+    </div>{{--
     @include('modals.new_pet_modal')
     @include('modals.confirm_delete_pet_modal')
-    @include('modals.edit_pet_modal')
+    @include('modals.edit_pet_modal') --}}
 @endsection
