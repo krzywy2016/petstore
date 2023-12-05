@@ -1,14 +1,12 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## Zadanie testowe
+## Cel do osiągnięcia
 
-REST API (w php) technologia dowolna
+Tematyka REST API - aplikacja komunikująca się z przykładowym REST API: https://petstore.swagger.io/
 
-Napisz aplikację komunikującą się z przykładowym REST API: https://petstore.swagger.io/
+Umożliwienie dodawania, pobierania, edycji i usuwania elementów w zasobie /pet. Od strony użytkownika prosty interfejs z formularzami. Obsługa błędów
 
-Umożliw dodawanie, pobieranie, edycję i usuwanie elementów w zasobie /pet. Od strony użytkownika zrób prosty interfejs z formularzami. Obsłuż błędy.
-
-## Komentarz - Kamil Krzywonos
+## Komentarz
 
 Do wykonania zadania użyłem następujących technologii:
 - laravel 9.52.15
